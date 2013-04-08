@@ -6,27 +6,20 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9" lang="fr"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="fr"> <!--<![endif]-->
-<head>
+<html class="no-js" lang="fr" ng-app="app"> <!--<![endif]-->
+<head >
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>theBIGWEB</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="../css/normalize.css">
 
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <style type="text/css">
-        .box {
-            height: 50px;
-            /*background-color: #ccc;*/
-        }
 
-        .spacer {
-            margin-bottom: 10px;
-        }
     </style>
-    <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <script src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
 <body>
 <!--[if lt IE 7]>
@@ -40,37 +33,24 @@
         <div class="container">
             <div class="topbar">
                 <div class="logo"><a href="/">theBigWeb</a></div>
-                <div><a href="pages/editor.html">test editeur</a></div>
             </div>
         </div>
 
 
     </div>
-    <div class="container" id="main">
+    <div class="container" id="main" ng-controller="MainCtrl">
         <div class="row">
-            <div class="span9">
-                <div id="posts">
-                    <div class="post">
-                        <div class="left">
-                            <a href=""><img src="img/falsy.jpg" alt="" class="img"></a>
-                            <!-- <div class="img">dimensions = 412px * 309px</div> -->
-                        </div>
-                        <div class="right">
-                            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                                Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu
-                                libero sit
-                                amet quam egestas semper. Aenean ultricies mi vitae est.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="span3">
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                    Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu
-                    libero sit amet quam egestas semper. Aenean ultricies mi vitae est.</p>
+            <div class="span12" id="editor-tools">
+                <a href class="btn app">Save</a> <a href class="btn app" ng-click="clear()">Clear</a>
             </div>
         </div>
+
+        <div class="row" id="editor-wrapper">
+            <div id="editor"></div>
+
+        </div>
+        <div class="row" id="editor-preview"></div>
+
     </div>
 </div>
 
@@ -106,11 +86,13 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="js/vendor/json3.js"></script>
-<script type="text/javascript" src="js/vendor/underscore-1.4.4.js"></script>
-<script type="text/javascript" src="js/vendor/jquery-1.9.1.js"></script>
-<script type="text/javascript" src="js/vendor/angular.js"></script>
-<script type="text/javascript" src="js/vendor/angular-resource-1.0.5.js"></script>
+<script type="text/javascript" src="../js/vendor/json3.js"></script>
+<script type="text/javascript" src="../js/vendor/underscore-1.4.4.js"></script>
+<script type="text/javascript" src="../js/vendor/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../js/vendor/angular.js"></script>
+<script type="text/javascript" src="../js/vendor/angular-resource-1.0.5.js"></script>
+<script type="text/javascript" src="../js/vendor/editor/ace.js"></script>
+<script type="text/javascript" src="../js/apps/editor/editor.js"></script>
+
 </body>
 </html>
-

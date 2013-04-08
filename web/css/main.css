@@ -117,6 +117,7 @@ body > #wrapper {
 #main {
   padding-top: 10px;
   padding-bottom: 330px;
+  position: relative;
 }
 
 body {
@@ -138,7 +139,16 @@ body a {
   border-bottom: 1px solid #4982A5;
 }
 .top .topbar {
+  *zoom: 1;
   height: 200px;
+}
+.top .topbar:before, .top .topbar:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.top .topbar:after {
+  clear: both;
 }
 .top .topbar .logo {
   background-image: url("..//img/logo.png");
@@ -146,6 +156,7 @@ body a {
   background-position: center;
   height: 200px;
   width: 260px;
+  float: left;
 }
 .top .topbar .logo a {
   background-color: transparent;
@@ -161,6 +172,12 @@ body a {
   display: block;
   width: 0;
   height: 150%;
+}
+
+img.img {
+  width: 412px;
+  background-color: #eee;
+  height: 309px;
 }
 
 #posts .post {
@@ -193,12 +210,7 @@ body a {
   display: block;
   border: 3px solid #ddd;
 }
-#posts .post .left a img.img {
-  width: 412px;
-  background-color: #eee;
-  height: 309px;
-}
-#posts .post .left a:before {
+#posts .post .left a:after {
   content: "";
   position: absolute;
   top: 0;
@@ -214,6 +226,60 @@ body a {
   float: right;
   width: 492px;
   margin-left: 10px;
+}
+
+.btn {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  display: inline-block;
+  padding: 5px 10px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+  border-width: 1px;
+  border-style: solid;
+}
+.btn.app {
+  border-color: #ccc;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f0f0f0), color-stop(100%, #cdcdcd));
+  background: -webkit-linear-gradient(top, #f0f0f0, #cdcdcd);
+  background: -moz-linear-gradient(top, #f0f0f0, #cdcdcd);
+  background: -o-linear-gradient(top, #f0f0f0, #cdcdcd);
+  background: linear-gradient(top, #f0f0f0, #cdcdcd);
+}
+.btn.app:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fdfdfd), color-stop(100%, #dadada));
+  background: -webkit-linear-gradient(top, #fdfdfd, #dadada);
+  background: -moz-linear-gradient(top, #fdfdfd, #dadada);
+  background: -o-linear-gradient(top, #fdfdfd, #dadada);
+  background: linear-gradient(top, #fdfdfd, #dadada);
+}
+.btn.app:active {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px inset;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px inset;
+}
+
+#editor-tools {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#editor-wrapper {
+  width: 100%;
+  position: relative;
+  height: 600px;
+}
+#editor-wrapper #editor {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 #footer {

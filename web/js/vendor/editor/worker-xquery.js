@@ -156,7 +156,7 @@ window.onmessage = function(e) {
 };
 })(this);// vim:set ts=4 sts=4 sw=4 st:
 
-define('ace/lib/fixoldbrowsers', ['require', 'exports', 'module' , 'ace/lib/regexp', 'ace/lib/es5-shim'], function(require, exports, module) {
+ace.define('ace/lib/fixoldbrowsers', ['require', 'exports', 'module' , 'ace/lib/regexp', 'ace/lib/es5-shim'], function(require, exports, module) {
 
 
 require("./regexp");
@@ -164,7 +164,7 @@ require("./es5-shim");
 
 });
  
-define('ace/lib/regexp', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/regexp', ['require', 'exports', 'module' ], function(require, exports, module) {
 
     var real = {
             exec: RegExp.prototype.exec,
@@ -236,7 +236,7 @@ define('ace/lib/regexp', ['require', 'exports', 'module' ], function(require, ex
 
 });
 
-define('ace/lib/es5-shim', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/es5-shim', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 function Empty() {}
 
@@ -933,7 +933,7 @@ var toObject = function (o) {
 
 });
 
-define('ace/lib/event_emitter', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/event_emitter', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 var EventEmitter = {};
@@ -1035,7 +1035,7 @@ exports.EventEmitter = EventEmitter;
 
 });
 
-define('ace/lib/oop', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/oop', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 exports.inherits = (function() {
@@ -1060,7 +1060,7 @@ exports.implement = function(proto, mixin) {
 
 });
  
-define('ace/mode/xquery_worker', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/worker/mirror', 'ace/mode/xquery/JSONParseTreeHandler', 'ace/mode/xquery/XQueryParser', 'ace/mode/xquery/visitors/SemanticHighlighter'], function(require, exports, module) {
+ace.define('ace/mode/xquery_worker', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/worker/mirror', 'ace/mode/xquery/JSONParseTreeHandler', 'ace/mode/xquery/XQueryParser', 'ace/mode/xquery/visitors/SemanticHighlighter'], function(require, exports, module) {
 
     
 var oop = require("../lib/oop");
@@ -1111,7 +1111,7 @@ oop.inherits(XQueryWorker, Mirror);
 }).call(XQueryWorker.prototype);
 
 });
-define('ace/worker/mirror', ['require', 'exports', 'module' , 'ace/document', 'ace/lib/lang'], function(require, exports, module) {
+ace.define('ace/worker/mirror', ['require', 'exports', 'module' , 'ace/document', 'ace/lib/lang'], function(require, exports, module) {
 
 
 var Document = require("../document").Document;
@@ -1154,7 +1154,7 @@ var Mirror = exports.Mirror = function(sender) {
 
 });
 
-define('ace/document', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter', 'ace/range', 'ace/anchor'], function(require, exports, module) {
+ace.define('ace/document', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter', 'ace/range', 'ace/anchor'], function(require, exports, module) {
 
 
 var oop = require("./lib/oop");
@@ -1501,7 +1501,7 @@ var Document = function(text) {
 exports.Document = Document;
 });
 
-define('ace/range', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/range', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 var comparePoints = function(p1, p2) {
     return p1.row - p2.row || p1.column - p2.column;
@@ -1735,7 +1735,7 @@ Range.comparePoints = comparePoints;
 exports.Range = Range;
 });
 
-define('ace/anchor', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
+ace.define('ace/anchor', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/lib/event_emitter'], function(require, exports, module) {
 
 
 var oop = require("./lib/oop");
@@ -1887,7 +1887,7 @@ var Anchor = exports.Anchor = function(doc, row, column) {
 
 });
 
-define('ace/lib/lang', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/lib/lang', ['require', 'exports', 'module' ], function(require, exports, module) {
 
 
 exports.stringReverse = function(string) {
@@ -2064,7 +2064,7 @@ exports.delayedCall = function(fcn, defaultTimeout) {
 };
 });
  
-define('ace/mode/xquery/JSONParseTreeHandler', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/mode/xquery/JSONParseTreeHandler', ['require', 'exports', 'module' ], function(require, exports, module) {
 
   var JSONParseTreeHandler = exports.JSONParseTreeHandler = function(code) {
     var list = [
@@ -2197,7 +2197,7 @@ define('ace/mode/xquery/JSONParseTreeHandler', ['require', 'exports', 'module' ]
   };
 });
 
-                                                            define('ace/mode/xquery/XQueryParser', ['require', 'exports', 'module' ], function(require, exports, module) {
+                                                            ace.define('ace/mode/xquery/XQueryParser', ['require', 'exports', 'module' ], function(require, exports, module) {
                                                             var XQueryParser = exports.XQueryParser = function XQueryParser(string, parsingEventHandler)
                                                             {
                                                               init(string, parsingEventHandler);
@@ -21848,7 +21848,7 @@ XQueryParser.TOKEN =
 ];
                                                             });
 
-define('ace/mode/xquery/visitors/SemanticHighlighter', ['require', 'exports', 'module' ], function(require, exports, module) {
+ace.define('ace/mode/xquery/visitors/SemanticHighlighter', ['require', 'exports', 'module' ], function(require, exports, module) {
 
   var SemanticHighlighter = exports.SemanticHighlighter = function(ast) {
     

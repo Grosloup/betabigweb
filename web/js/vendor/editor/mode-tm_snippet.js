@@ -1,4 +1,4 @@
-define('ace/mode/tm_snippet', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
+ace.define('ace/mode/tm_snippet', ['require', 'exports', 'module' , 'ace/lib/oop', 'ace/mode/text', 'ace/tokenizer', 'ace/mode/text_highlight_rules'], function(require, exports, module) {
 
 
 var oop = require("../lib/oop");
