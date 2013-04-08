@@ -1,0 +1,25 @@
+@mixin  mx_clearfix{
+  *zoom: 1;
+  &:before,&:after{
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+  &:after{
+    clear: both;
+  }
+}
+
+@mixin mx_ir{
+  background-color: transparent;
+  border: 0;
+  overflow: hidden;
+/* IE 6/7 fallback */
+  *text-indent: -9999px;
+  &:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+  }
+}

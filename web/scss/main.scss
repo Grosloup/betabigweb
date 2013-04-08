@@ -1,0 +1,157 @@
+@import "compass";
+*{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  list-style: none;
+}
+@import "mixins";
+@import "bases";
+@import "grid";
+@import "typo";
+
+
+
+$width: 1296px;
+
+.container{
+  width: $width;
+}
+
+
+.container,.row{
+  margin: 0 auto;
+  @extend .clearfix;
+}
+
+@include mx_span_list;
+@include mx_spans;
+
+body {
+  font: {
+    family : $fontFamily;
+    size : $fontSize;
+  }
+  color : $fontColor;
+  line-height: $lineHeight;
+  a{
+    color : $fontColor;
+    text-decoration: none;
+  }
+}
+
+.top{
+  background-color: #79AFE0;
+  @include box-shadow(rgba(0,0,0,0.3) 0 2px 3px);
+  border-bottom: 1px solid #4982A5;
+  .topbar{
+    height: 200px;
+    .logo{
+      background-image: url("..//img/logo.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 200px;
+      width: 260px;
+      a{
+        @include mx_ir;
+        display: block;
+        height: 100%;
+      }
+    }
+  }
+}
+
+#left-nav{
+  @extend .span2;
+}
+
+/* ====================== media queries ====================== */
+
+/* min 960 */
+@media (min-width: 960px) and (max-width: 1296px){
+
+  $width: 960px;
+  .container{
+    width: $width;
+  }
+
+  @include mx_spans($width);
+}
+
+/* min 768 */
+@media (min-width: 768px) and (max-width: 959px){
+
+  $width: 768px;
+  .container{
+    width: $width;
+  }
+
+  @include mx_spans($width);
+}
+
+/* max 767 */
+@media (max-width: 767px){
+
+  $width: 100%;
+  .container{
+    width: $width;
+  }
+
+  $spanList: "";
+  @for $i from 1 through 12{
+    $spanList: $spanList + ".span#{$i}";
+    @if $i < 12 {
+      $spanList: $spanList + ", ";
+    }
+  }
+  .row{
+    #{$spanList} {
+      margin: {
+        left: auto;
+        right: auto;
+      }
+      float: none;
+      display: block;
+      min-height: 1px;
+      width: 80%;
+    }
+    div[class^="span"].alpha, div[class^="span"].omega{
+      margin: {
+        left: auto;
+        right: auto;
+      }
+      width: 100%;
+    }
+  }
+  #left-nav{
+    @include mx_clearfix;background-color: #ccc;
+    ul{
+
+      li{
+        display: block;
+        float: left;
+        margin-right: 5px;
+        padding: 5px;
+      }
+    }
+  }
+}
+
+/* max 640 */
+@media (max-width: 640px){
+
+}
+
+/* max 480 */
+@media (max-width: 480px){
+
+}
+
+/* max 240 */
+@media (max-width: 240px){
+
+}
+
+
+

@@ -1,0 +1,44 @@
+@function colwidth($c, $w, $g){
+  @return ($w / $c) - (2 * $g);
+}
+
+@mixin mx_span_base($gutter: 10px){
+  margin: {
+  left: $gutter;
+  right: $gutter;
+}
+  float: left;
+  display: inline;
+  min-height: 1px;
+}
+
+@mixin mx_span_list($cols:12,$gutter: 10px){
+  $spanList: "";
+  @for $i from 1 through $cols{
+    $spanList: $spanList + ".span#{$i}";
+    @if $i < 12 {
+      $spanList: $spanList + ", ";
+    }
+  }
+  .row{
+    #{$spanList} {
+      @include mx_span_base($gutter);
+    }
+  }
+
+}
+
+@mixin mx_spans($width: 1296px, $cols:12, $gutter: 10px){
+  @for $i from 1 through $cols{
+    .row .span#{$i} {
+      width: colwidth($cols,$width,$gutter) * $i + (2 * ($i - 1) * $gutter);
+    }
+  }
+}
+
+.row div[class^="span"].alpha{
+  margin-left: 0;
+}
+.row div[class^="span"].omega{
+  margin-right: 0;
+}

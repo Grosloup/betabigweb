@@ -1,6 +1,5 @@
 .sass-cache
 .idea
-web/scss
 config.rb
 Guardfile
 server.js
