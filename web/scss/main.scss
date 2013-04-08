@@ -28,17 +28,28 @@ $width: 1296px;
 @include mx_span_list;
 @include mx_spans;
 
+html, body, wrapper{
+  height: 100%;
+}
+body>#wrapper{
+  height: auto;min-height: 100%;
+}
+#main{padding-top: 10px;
+  padding-bottom: 330px;
+}
 body {
   font: {
     family : $fontFamily;
     size : $fontSize;
   }
+  //padding-bottom: 254px;
   color : $fontColor;
   line-height: $lineHeight;
   a{
     color : $fontColor;
     text-decoration: none;
   }
+
 }
 
 .top{
@@ -61,9 +72,55 @@ body {
     }
   }
 }
+#posts{
+  .post{
+    border: 1px solid #ccc;
+    @include border-radius(2px);
+    padding: 10px;
+    @include mx_clearfix;
+    .left{
+      float: left;
+      width : 418px;
+      margin-right: 10px;
+      a{
+        position: relative;
+        width: 412px;
+        height: 309px;
+        display: block;
+        border:3px solid #ddd;
+        img.img{
+          width: 412px;
+          background-color: #eee;
+          height: 309px;
+        }
+        &:before{
+          content: "";
+          position: absolute;
+          top:0;
+          left: 0;
+          width: 412px;
+          height: 309px;
+          @include box-shadow(rgba(0,0,0,0.4) 0 0 5px inset);
+          display: block;
+        }
+      }
+    }
+    .right{
+      float: right;
+      width: 492px;
+      margin-left: 10px;
+    }
+  }
+}
+#footer{
+  position: relative;
+  margin-top: -300px;
+  background-color: #79AFE0;
+  @include background(url("../img/foot-logo.png") no-repeat bottom right,#79AFE0);
+  min-height: 300px;
 
-#left-nav{
-  @extend .span2;
+  padding-top: 10px;
+  @include box-shadow(rgba(0,0,0,0.3)0 2px 3px inset);
 }
 
 /* ====================== media queries ====================== */
@@ -116,25 +173,25 @@ body {
       min-height: 1px;
       width: 80%;
     }
-    div[class^="span"].alpha, div[class^="span"].omega{
-      margin: {
-        left: auto;
-        right: auto;
-      }
-      width: 100%;
-    }
-  }
-  #left-nav{
-    @include mx_clearfix;background-color: #ccc;
-    ul{
 
-      li{
-        display: block;
-        float: left;
-        margin-right: 5px;
-        padding: 5px;
-      }
-    }
+
+    div[class^="span"].alpha~div[class^="span"], div[class^="span"].alpha, div[class^="span"].omega{
+          margin: {
+            left: auto;
+            right: auto;
+          }
+          width: 100%;
+        }
+
+  }
+
+  #footer{
+    position: relative;
+    margin-top: -300px;
+    background-color: #79AFE0;
+    @include background(url("../img/foot-logo.png") no-repeat bottom center,#79AFE0);
+    min-height: 163px;
+    padding-bottom: 137px;
   }
 }
 
