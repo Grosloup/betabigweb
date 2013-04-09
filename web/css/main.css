@@ -269,9 +269,11 @@ img.img {
 }
 
 #editor-wrapper {
-  width: 100%;
+  width: 48%;
   position: relative;
   height: 600px;
+  float: left;
+  border: 1px solid #ccc;
 }
 #editor-wrapper #editor {
   margin: 0;
@@ -280,6 +282,14 @@ img.img {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+#editor-result {
+  width: 48%;
+  position: relative;
+  height: 600px;
+  float: right;
+  border: 1px solid #ccc;
 }
 
 #footer {

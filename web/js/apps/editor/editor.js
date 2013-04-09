@@ -23,7 +23,7 @@ app.controller("MainCtrl",function($scope,EditSession, editor){
         });
     });
     $scope.$watch("test", function(val){
-        document.getElementById("editor-preview").innerHTML = val;
+        document.getElementById("editor-result").innerHTML = val;
     });
 
     $scope.clear = function(){
@@ -32,4 +32,3 @@ app.controller("MainCtrl",function($scope,EditSession, editor){
         $scope.test = "";
     };
 });
-

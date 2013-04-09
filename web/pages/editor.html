@@ -6,7 +6,7 @@
 <!--[if IE 8]>
 <html class="no-js lt-ie9" lang="fr"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js" lang="fr" ng-app="app"> <!--<![endif]-->
+<html class="no-js" lang="fr"> <!--<![endif]-->
 <head >
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -21,7 +21,7 @@
     </style>
     <script src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 </head>
-<body>
+<body ng-app="app" >
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
@@ -33,11 +33,11 @@
         <div class="container">
             <div class="topbar">
                 <div class="logo"><a href="/">theBigWeb</a></div>
+                <div id="head-links">{{ah}}</div>
             </div>
         </div>
-
-
     </div>
+
     <div class="container" id="main" ng-controller="MainCtrl">
         <div class="row">
             <div class="span12" id="editor-tools">
@@ -45,11 +45,14 @@
             </div>
         </div>
 
-        <div class="row" id="editor-wrapper">
-            <div id="editor"></div>
+        <div class="row">
+            <div id="editor-wrapper">
+                <div id="editor"></div>
+            </div>
+            <div id="editor-result"></div>
 
         </div>
-        <div class="row" id="editor-preview"></div>
+
 
     </div>
 </div>
