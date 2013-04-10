@@ -1,4 +1,81 @@
 $fontFamily: Arial, Helvetica, sans-serif;
+$fontSizeValue:14;
 $fontSize: 14px;
-$lineHeight: $fontSize * 1.6;
+$lineHeight: $fontSize * 1.5;
 $fontColor: #666;
+
+@function fiboup($start, $iter){
+  $constant : 1.5;
+  @for $i from 1 through $iter{
+    $start: $start * $constant;
+  }
+  @return $start;
+}
+@function fibodown($start, $iter){
+  $constant : 1 / 1.5;
+  @for $i from 1 through $iter{
+    $start: $start * $constant;
+  }
+  @return $start;
+}
+h1,h2,h3,h4,h5,h6,p,a{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-size: ($fontSizeValue / 16) * 100%;
+}
+html>body{
+  font-size: $fontSize;
+}
+body {
+  font: {
+    family : $fontFamily;
+  }
+  //padding-bottom: 254px;
+  color : $fontColor;
+  line-height: $lineHeight;
+
+
+}
+a{
+  color : $fontColor;
+  text-decoration: none;
+}
+p{
+   margin: {
+     top: $lineHeight;
+     bottom: $lineHeight;
+   }
+   text-align: justify;
+ }
+h1{
+  font-size: fiboup($fontSize, 3);
+  line-height: $lineHeight *2;
+  padding: {
+    top: $lineHeight *1.5;
+    bottom: $lineHeight * 0.5;
+  }
+  & + p{
+    text-indent: 1.5em;
+  }
+}
+h2{
+  font-size: fiboup($fontSize, 2);
+  padding: {
+    top: $lineHeight * 0.6;
+    bottom: $lineHeight * 0.4;
+  }
+  & + p {
+    //margin-top: 0;
+  }
+}
+h3{
+  font-size: fiboup($fontSize, 1);
+  line-height: $lineHeight *0.8;
+  padding: {
+    top: $lineHeight;
+    bottom: $lineHeight * 0.2;
+  }
+}

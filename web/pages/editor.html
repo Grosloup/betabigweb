@@ -41,7 +41,7 @@
     <div class="container" id="main" ng-controller="MainCtrl">
         <div class="row">
             <div class="span12" id="editor-tools">
-                <a href class="btn app">Save</a> <a href class="btn app" ng-click="clear()">Clear</a>
+                <a href class="btn app">Save</a> <a href class="btn app" ng-click="clear()">Clear</a> <select ng-model="settings.theme" ng-options="t.name for t in THEMES" id="settings-theme"></select>
             </div>
         </div>
 
